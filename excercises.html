@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title> Samex </title>
+        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel = "stylesheet" href = "stylesheet.css">
+
+    </head>
+    <body>
+        <div class = "alert" id="msg"></div>
+            <div class="container">
+                    <form id="regForm">
+                        <div class="form-group">
+                          <label for="age">Age</label>
+                          <input type="integer" class="form-control" id="age" aria-describedby="age" placeholder="Enter Age">
+                          <small id="ageHelp" class="form-text text-muted">You must be at least 15 years old to register</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                          </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id='submitButton'>Submit</button>
+                      </form>
+                    </div>
+                    <br>
+
+        <button onClick="hide()"> Click to hide everything execept form </button>
+        <div id = "group">    
+        <div id="total"> </div>
+        <div id = "name"></div>
+        <div id = "list"></div>
+        <br>
+        </div>
+
+
+
+        <script>
+                
+            function register(e){
+                e.preventDefault();
+                let age = document.getElementById('age').value
+                let password = document.getElementById('password').value
+                let confirmPassword = document.getElementById('confirmPassword').value
+                let msg = document.getElementById("msg");
+
+               if(age == '' || password == '' || confirmPassword == ''){
+                   msg.className = "alert alert-danger";
+                   msg.innerHTML= 'Please Make Sure to Fill out all fields'
+               } else if (confirmPassword != password){
+                msg.className = "alert alert-danger";
+                msg.innerHTML= 'The Two Passwords Do Not Match'
+               } else if (age < 15){
+                    msg.className="alert alert-danger";
+                    msg.innerHTML = "You are not old enough"
+                }
+                else 
+                msg.className="alert alert-success";
+                msg.innerHTML = "You are " + age + " and you have successfully registered!"
+                }
+            
+                
+            document.getElementById("regForm").addEventListener('submit', register, false);
+
+
+
+
+
+ 
+
+
+    // <!-- Create an alert message saying a positive thing about you. -->
+
+
+            // alert("I am a great Person!")    
+
+
+
+    // 2 - Create 2 variables. Put numbers on them 2.1 - Sum these 2 numbers.
+    // 2.2 - Show this result in a alert message
+
+            let var1 = 2;
+            let var2 = 4;
+            let total = var1 + var2;
+            // alert(total);
+
+    // 3 - Create a <div> tag, put an ID on it, show the result of your sum inside this tag. Hint : use document.getElementById(id_name) to help you solve this.
+            document.getElementById("total").innerHTML= "The Total is " + total;
+
+    //  4 - Create another two variables and save names on it.
+    // 5 - Concatenate them and ​show ​​to the user using the same principle of the 3rd question: For example : “United” “States” = “United States”
+       
+            let first_name = "Matt ";
+            let last_name = "Grossman";
+            document.getElementById("name").innerHTML= "My name is " + first_name + last_name;
+       
+    //   6 - Create an empty array. Put at least 3 elements on it using integer indexes. For example: In the position zero of the array, save this or that name.
+    // In the position one of the array, save this or that name
+
+            let array = [];
+            array[0] = "Matt";
+            array[1] = "Billy";
+            array[2] = "Sally";
+
+    // 7 - Display for the user each of the elements inside this array.
+
+            function displayArray(){
+            for(i=0;i<array.length;i++){
+                    document.write(array[i] + "<br>")
+                }
+            }
+            displayArray(array);
+
+    // 1 - Create an array of integers and find the minimum value and print that out for the user.
+    // Hint: You can use a simple function and pass that array to it, but which function that is?
+
+            let numbers = [6,2,7,36,21,623,62];
+            let minimum = Math.min(...numbers);
+            document.write(minimum);
+
+    // 2 - Create an array of integers and find the minimum value and print that out for the user using a loop.
+    // For instance : [4,2,-6,7,2,0,2] the minimum value for this array is -6.
+    // Hint : You can use a (for loop / while) and a variable to keep saving the minimum value until that point. You shall not use the function that you used in question #1.
+            let integers = [23,5,-4,52,0,-32];
+            let minNum = null;
+            let maxNum = null;
+
+            function findMin() {
+                for(i=0;i<integers.length;i++){
+                    if(integers[i] < minNum){
+                        minNum = integers[i];
+                    }
+                }
+                document.write("<br>" + "The Minimum Number is "+ minNum);
+            }
+            findMin(integers);
+
+    // 3 - Try to do the same to find the maximum value of an array.
+
+            function findMax() {
+                for(i=0;i<integers.length;i++){
+                    if(integers[i] > maxNum){
+                        maxNum = integers[i];
+                    }
+                }
+                document.write("<br>" + "The Maximum Number is "+ maxNum);
+            }
+            findMax(integers);
+
+        btn.addEventListener('click',
+            function hide(){
+                document.getElementById("group").toggle()
+            })
+       </script>
+    </body>
+</html>
+
+
